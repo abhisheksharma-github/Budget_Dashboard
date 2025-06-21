@@ -1,1 +1,42 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--logos" width="31.88" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 257"><defs><linearGradient id="IconifyId1813088fe1fbc01fb466" x1="-.828%" x2="57.636%" y1="7.652%" y2="78.411%"><stop offset="0%" stop-color="#41D1FF"></stop><stop offset="100%" stop-color="#BD34FE"></stop></linearGradient><linearGradient id="IconifyId1813088fe1fbc01fb467" x1="43.376%" x2="50.316%" y1="2.242%" y2="89.03%"><stop offset="0%" stop-color="#FFEA83"></stop><stop offset="8.333%" stop-color="#FFDD35"></stop><stop offset="100%" stop-color="#FFA800"></stop></linearGradient></defs><path fill="url(#IconifyId1813088fe1fbc01fb466)" d="M255.153 37.938L134.897 252.976c-2.483 4.44-8.862 4.466-11.382.048L.875 37.958c-2.746-4.814 1.371-10.646 6.827-9.67l120.385 21.517a6.537 6.537 0 0 0 2.322-.004l117.867-21.483c5.438-.991 9.574 4.796 6.877 9.62Z"></path><path fill="url(#IconifyId1813088fe1fbc01fb467)" d="M185.432.063L96.44 17.501a3.268 3.268 0 0 0-2.634 3.014l-5.474 92.456a3.268 3.268 0 0 0 3.997 3.378l24.777-5.718c2.318-.535 4.413 1.507 3.936 3.838l-7.361 36.047c-.495 2.426 1.782 4.5 4.151 3.78l15.304-4.649c2.372-.72 4.652 1.36 4.15 3.788l-11.698 56.621c-.732 3.542 3.979 5.473 5.943 2.437l1.313-2.028l72.516-144.72c1.215-2.423-.88-5.186-3.54-4.672l-25.505 4.922c-2.396.462-4.435-1.77-3.759-4.114l16.646-57.705c.677-2.35-1.37-4.583-3.769-4.113Z"></path></svg>
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+	 viewBox="0 0 513.093 513.093" xml:space="preserve">
+<rect x="389.04" y="80.091" style="fill:#D4E4AC;" width="32.057" height="224.402"/>
+<g>
+	<rect x="389.04" y="80.091" style="fill:#E2804F;" width="32.057" height="32.057"/>
+	<path style="fill:#E2804F;" d="M164.639,424.709h240.429v31.872c0,26.659-21.612,48.27-48.27,48.27H116.553"/>
+</g>
+<path style="fill:#F2BF7E;" d="M357.379,424.229V8.359H68.987v448.408c0,26.557,20.986,48.086,47.543,48.086
+	s47.543-21.529,47.543-48.086v-32.538"/>
+<rect x="204.709" y="376.623" style="fill:#FFFFFF;" width="104.187" height="48.086"/>
+<path d="M357.414,513.093l-240.361-0.308v0.26c0,0-0.412,0-0.522,0c-30.824,0-55.902-25.442-55.902-56.278V0h305.11v408.555h-15.673
+	V15.673H76.302v441.093c0,22.194,18.046,40.249,40.229,40.249s40.229-18.056,40.229-40.249v-39.852h257.045v39.852
+	c0,14.935-5.874,29.054-16.625,39.757C386.446,507.209,372.355,513.093,357.414,513.093z M155.152,497.16l202.177,0.259
+	c22.111,0,40.801-18.617,40.801-40.653v-24.179H172.432v24.179C172.432,472.63,165.795,486.973,155.152,497.16z"/>
+<rect x="108.693" y="48.065" width="87.771" height="15.673"/>
+<rect x="108.693" y="80.457" width="32.392" height="15.673"/>
+<rect x="108.693" y="144.196" style="fill:#FFFFFF;" width="32.392" height="15.673"/>
+<rect x="156.759" y="144.196" width="160.914" height="15.673"/>
+<rect x="108.693" y="176.588" style="fill:#FFFFFF;" width="32.392" height="15.673"/>
+<rect x="156.759" y="176.588" width="160.914" height="15.673"/>
+<rect x="108.693" y="207.935" style="fill:#FFFFFF;" width="32.392" height="15.673"/>
+<rect x="156.759" y="207.935" width="160.914" height="15.673"/>
+<rect x="108.693" y="240.327" style="fill:#FFFFFF;" width="32.392" height="15.673"/>
+<rect x="156.759" y="240.327" width="160.914" height="15.673"/>
+<rect x="108.693" y="272.718" style="fill:#FFFFFF;" width="32.392" height="15.673"/>
+<rect x="156.759" y="272.718" width="160.914" height="15.673"/>
+<rect x="260.204" y="305.11" style="fill:#D4E4AC;" width="57.469" height="15.673"/>
+<rect x="220.497" y="305.11" width="24.033" height="15.673"/>
+<rect x="260.204" y="336.457" style="fill:#D4E4AC;" width="57.469" height="15.673"/>
+<rect x="220.497" y="336.457" width="24.033" height="15.673"/>
+<polygon points="316.628,408.555 300.955,408.555 300.955,384.522 212.138,384.522 212.138,408.555 196.465,408.555 
+	196.465,368.849 316.628,368.849 "/>
+<rect x="252.889" y="48.065" width="16.718" height="15.673"/>
+<rect x="276.922" y="48.065" style="fill:#E2804F;" width="15.673" height="15.673"/>
+<rect x="300.955" y="48.065" width="16.718" height="15.673"/>
+<rect x="398.13" y="40.751" width="15.673" height="22.988"/>
+<path d="M429.11,104.49V72.079h-48.086v240.429h17.106v23.949h15.673v-23.948h15.307V120.163h7.681v72.098h15.673V104.49H429.11z
+	 M413.083,88.108v16.382h-16.029V88.108H413.083z M413.083,296.48h-16.029V120.163h16.029V296.48z"/>
+<rect x="397.085" y="344.816" style="fill:#F2BF7E;" width="16.718" height="15.673"/>
+</svg>
