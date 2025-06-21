@@ -55,6 +55,73 @@
   background-color: var(--clr-yellow);
 }
 
+/* Add Card & Cancel Button Styling */
+.btn-primary {
+  background: linear-gradient(to right, #39FF14, #00FFFF);
+  color: #000;
+  font-weight: bold;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 0 10px #39ff1444;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #00ffff88;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #ff0055;
+  border: 2px solid #ff0055;
+  font-weight: bold;
+  padding: 0.6rem 1.5rem;
+  border-radius: 8px;
+  margin-left: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.remove-card-btn {
+  background: none;
+  border: none;
+  color: #ff4d4f;
+  font-size: 1.4rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+  margin-left: 10px;
+}
+
+.remove-card-btn:hover {
+  color: #ff1a1a;
+  transform: scale(1.2) rotate(10deg);
+}
+
+.text-red {
+  color: #ff4d4f;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: color 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.text-red:hover {
+  color: #ff1a1a;
+  transform: scale(1.2);
+}
+
+
+.btn-secondary:hover {
+  background-color: #ff0055;
+  color: #fff;
+}
+
 @media screen and (max-width: 768px) {
   .grid-c1 {
     grid-column-start: 1;

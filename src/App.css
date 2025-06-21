@@ -5,8 +5,8 @@
 }
 
 :root {
-  --clr-primary: #111111;         /* Elegant black background */
-  --clr-primar-light: #1A1A1A;    /* Card background */
+  --clr-primary: #000000;         /* Elegant black background */
+  --clr-primar-light: #201f1f;    /* Card background */
   --clr-secondary: #232323;       /* Slightly lighter section bg */
   --clr-white: #EAEAEA;           /* Elegant light text */
   --clr-black: #000000;
