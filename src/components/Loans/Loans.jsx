@@ -8,7 +8,6 @@ const Loans = () => {
     const [showModal, setShowModal] = useState(false);
     const percent = Math.min(Math.round((reached / target) * 100), 100);
 
-    // SVG circle properties
     const radius = 50;
     const circumference = 2 * Math.PI * radius;
     const offset = circumference - (percent / 100) * circumference;
