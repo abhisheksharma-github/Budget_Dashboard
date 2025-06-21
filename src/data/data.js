@@ -17,21 +17,21 @@ export const navigationLinks = [
 export const transactions = [
     {
         id: 11, 
-        name: "Sarah Parker",
+        name: "Santi Parker",
         image: personsImgs.person_four,
         date: "23/12/04",
         amount: 22000
     },
     {
         id: 12, 
-        name: "Krisitine Carter",
+        name: "Kamala carter",
         image: personsImgs.person_three,
         date: "23/07/21",
         amount: 20000
     },
     {
         id: 13, 
-        name: "Irene Doe",
+        name: "Jon Snow",
         image: personsImgs.person_two,
         date: "23/08/25",
         amount: 30000
@@ -72,36 +72,7 @@ export const reportData = [
 ];
 
 export const budget = [
-    {
-        id: 19, 
-        title: "Subscriptions",
-        type: "Automated",
-        amount: 22000
-    },
-    {
-        id: 20, 
-        title: "Loan Payment",
-        type: "Automated",
-        amount: 16000
-    },
-    {
-        id: 21, 
-        title: "Foodstuff",
-        type: "Automated",
-        amount: 20000
-    },
-    {
-        id: 22, 
-        title: "Subscriptions",
-        type: null,
-        amount: 10000
-    },
-    {
-        id: 23, 
-        title: "Subscriptions",
-        type: null,
-        amount: 40000
-    }
+  
 ];
 
 export const subscriptions = [
