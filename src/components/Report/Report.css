@@ -1,63 +1,78 @@
-.bar-graph-container {
-  display: flex;
-  align-items: flex-end;
-  padding: 1rem 0;
-}
-
-.bar-graph-axis {
+.grid-c3 {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 200px;
-  margin-right: 10px;
-  color: #ccc;
-  font-size: 12px;
 }
 
-.bar-graph-bars {
+.chart-controls {
   display: flex;
-  gap: 20px;
+  align-items: center;
+  gap: 8px;
+}
+
+.timeframe-pills {
+  display: flex;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+  padding: 2px;
+}
+
+.pill {
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: all var(--transition-fast);
+}
+
+.pill.active {
+  background: var(--accent-indigo);
+  color: #FFFFFF;
+}
+
+.report-summary-chips {
+  display: flex;
+  gap: 8px;
   flex-wrap: wrap;
-  align-items: flex-end;
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  background: var(--bg-surface);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
 }
 
-.bar-group {
-  text-align: center;
-}
-
-.bar-wrap {
+.chip {
   display: flex;
-  gap: 4px;
-  height: 200px;
-  align-items: flex-end;
-}
-
-.bar {
-  width: 12px;
-  border-radius: 4px 4px 0 0;
-  transition: height 0.3s ease;
-}
-
-.bar-1 {
-  background-color: #23e411;
-}
-
-.bar-2 {
-  background-color: #56c7fb;
-}
-
-.bar-label {
+  align-items: center;
+  gap: 6px;
   font-size: 12px;
-  color: #aaa;
-  margin-top: 4px;
-  position: relative;
 }
 
-.remove-btn {
-  background: none;
-  border: none;
-  color: #ff4d4f;
-  font-size: 16px;
-  margin-left: 4px;
-  cursor: pointer;
+.chip-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-pill);
+}
+
+.dot-emerald {
+  background: var(--accent-emerald);
+}
+
+.dot-rose {
+  background: var(--accent-rose);
+}
+
+.chip-label {
+  color: var(--text-muted);
+}
+
+.chip-val {
+  font-weight: 700;
+}
+
+.chart-canvas-wrapper {
+  flex: 1;
+  min-height: 180px;
+  position: relative;
 }

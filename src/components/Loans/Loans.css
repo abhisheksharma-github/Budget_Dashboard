@@ -1,169 +1,59 @@
-.grid-c7-content {
+.grid-c7 {
   display: flex;
   flex-direction: column;
+}
+
+.loans-content-wrapper {
+  display: flex;
   align-items: center;
-  gap: 20px;
-  padding: 1rem;
-}
-
-/* Progress bar container */
-.progress-bar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-/* Circle container */
-.percent {
-  position: relative;
-  width: 120px;
-  height: 120px;
-}
-
-.number {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 24px;
-  color: var(--clr-green);
-  text-shadow: 0 0 5px var(--clr-green), 0 0 10px var(--clr-green);
-}
-
-.data-list {
-  width: 100%;
-  padding: 0 20px;
-}
-
-.data-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 8px 0;
-  font-size: 16px;
-}
-
-.modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(4px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 50;
-}
-
-.modal-content {
-  background-color: #1A1A1A;
-  padding: 24px;
-  border-radius: 12px;
-  color: #fff;
-  box-shadow: 0 0 10px #7C4DFF;
-  width: 90%;
-  max-width: 400px;
-  display: flex;
-  flex-direction: column;
   gap: 16px;
+  padding: 8px 4px;
 }
 
-.modal-content label {
+.debt-ring-container {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.debt-ring-label {
+  position: absolute;
   display: flex;
   flex-direction: column;
-  font-size: 14px;
-}
-
-.modal-content input {
-  margin-top: 5px;
-  padding: 8px;
-  background-color: #111;
-  border: 1px solid #333;
-  color: #fff;
-  border-radius: 6px;
-}
-
-.modal-actions {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.btn-glow, .btn-cancel {
-  padding: 10px;
-  flex: 1;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s ease;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
-.btn-glow {
-  background-color: #8FFF00;
-  color: #000;
-  box-shadow: 0 0 10px #8FFF00, 0 0 20px #8FFF00;
-}
-.btn-glow:hover {
-  background-color: #bfff39;
+.debt-ring-label span {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
 }
 
-.btn-cancel {
-  background-color: #7C4DFF;
-  color: #fff;
-  box-shadow: 0 0 10px #7C4DFF, 0 0 20px #7C4DFF;
-}
-.btn-cancel:hover {
-  background-color: #9f70ff;
-}
-
-/* ✅ Responsive Tweaks for Mobile */
-@media (max-width: 480px) {
-  .percent {
-    width: 90px;
-    height: 90px;
-  }
-
-  .number {
-    font-size: 18px;
-  }
-
-  .data-item {
-    font-size: 14px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
-  }
-
-  .modal-content {
-    padding: 16px;
-    gap: 12px;
-  }
-
-  .modal-actions {
-    flex-direction: column;
-  }
-
-  .btn-glow,
-  .btn-cancel {
-    width: 100%;
-    margin: 4px 0;
-  }
+.debt-ring-label small {
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-top: 2px;
 }
 
-/* ✅ Responsive Tweaks for Tablets */
-@media (min-width: 481px) and (max-width: 768px) {
-  .percent {
-    width: 100px;
-    height: 100px;
-  }
+.debt-info-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
 
-  .number {
-    font-size: 20px;
-  }
-
-  .data-item {
-    font-size: 15px;
-  }
+.debt-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
 }

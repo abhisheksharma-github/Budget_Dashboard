@@ -1,21 +1,27 @@
 .main-content {
-    background-color: var(--clr-secondary);
-    flex: 1;
-    padding: 32px;
-  }
+  background-color: var(--bg-base);
+  flex: 1;
+  padding: 24px 32px;
+  min-height: 100vh;
+  overflow-y: auto;
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+}
 
-  @media screen and (max-width: 1400px) {
-    .main-content {
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-    
-  }
-  
+.view-wrapper {
+  position: relative;
+  width: 100%;
+}
 
-  @media screen and (max-width: 1200px) {
-    .main-content {
-      padding-right: 16px;
-      padding-left: 16px;
-    }
+@media screen and (max-width: 1400px) {
+  .main-content {
+    padding: 20px 24px;
   }
+}
+
+@media screen and (max-width: 768px) {
+  .main-content {
+    padding: 16px;
+  }
+}

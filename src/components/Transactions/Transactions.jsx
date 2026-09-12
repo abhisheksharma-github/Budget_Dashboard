@@ -1,104 +1,99 @@
-import { useState } from "react";
-import "./Transactions.css";
-import { iconsImgs } from "../../utils/images";
-import { transactions as demoTransactions } from "../../data/data";
+import React from 'react';
+import { useFinance } from '../../context/FinanceContext';
+import { formatCurrency, formatHumanDate, getCategoryMeta } from '../../utils/formatters';
+import './Transactions.css';
 
 const Transactions = () => {
-  const [transactionList, setTransactionList] = useState(demoTransactions);
-  const [showForm, setShowForm] = useState(false);
-  const [form, setForm] = useState({
-    name: "",
-    date: "",
-    amount: "",
-    image: iconsImgs.wallet // default icon
-  });
+  const { transactions, removeTransaction, openModal, setActiveView, profile } = useFinance();
 
-  const handleAdd = (e) => {
-    e.preventDefault();
-    const newTransaction = {
-      id: Date.now(),
-      name: form.name,
-      date: form.date,
-      amount: parseFloat(form.amount),
-      image: form.image
-    };
-    setTransactionList([...transactionList, newTransaction]);
-    setForm({ name: "", date: "", amount: "", image: iconsImgs.wallet });
-    setShowForm(false);
-  };
-
-  const handleRemove = (id) => {
-    setTransactionList(transactionList.filter(tx => tx.id !== id));
-  };
+  const recentTransactions = transactions.slice(0, 5);
 
   return (
     <div className="grid-one-item grid-common grid-c2">
       <div className="grid-c-title">
-        <h3 className="grid-c-title-text">All Transactions</h3>
-        <button className="grid-c-title-icon" onClick={() => setShowForm(!showForm)}>
-          <img src={iconsImgs.plus} alt="Add" />
-        </button>
+        <h3 className="grid-c-title-text">
+          <span>📋</span> Recent Activity
+        </h3>
+        <div style={{ display: 'flex', gap: '6px' }}>
+          <button
+            className="btn-ghost"
+            style={{ fontSize: '12px', padding: '4px 8px' }}
+            onClick={() => setActiveView('transactions')}
+          >
+            View All →
+          </button>
+          <button
+            className="grid-c-title-icon"
+            onClick={() => openModal('addTransaction')}
+            title="Record Transaction"
+            aria-label="Record Transaction"
+          >
+            <span>+</span>
+          </button>
+        </div>
       </div>
 
-      {showForm && (
-        <form className="budget-form" onSubmit={handleAdd} style={{ marginBottom: "1rem", display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
-          <input
-            type="text"
-            placeholder="Name"
-            value={form.name}
-            onChange={(e) => setForm({ ...form, name: e.target.value })}
-            required
-          />
-          <input
-            type="date"
-            value={form.date}
-            onChange={(e) => setForm({ ...form, date: e.target.value })}
-            required
-          />
-          <input
-            type="number"
-            placeholder="Amount"
-            value={form.amount}
-            onChange={(e) => setForm({ ...form, amount: e.target.value })}
-            required
-          />
-          <button type="submit">Add</button>
-        </form>
-      )}
+      <div className="tx-list-container">
+        {recentTransactions.length === 0 ? (
+          <div className="tx-empty">
+            <span>🧾</span>
+            <p>No transactions recorded yet.</p>
+            <button
+              className="btn-secondary"
+              style={{ marginTop: '10px', fontSize: '12px' }}
+              onClick={() => openModal('addTransaction')}
+            >
+              + Record Your First Expense
+            </button>
+          </div>
+        ) : (
+          <div className="tx-items">
+            {recentTransactions.map((tx) => {
+              const meta = getCategoryMeta(tx.category);
+              const isIncome = tx.type === 'income';
 
-      <div className="grid-content">
-        <div className="grid-items">
-          {transactionList.map((transaction) => (
-            <div className="grid-item" key={transaction.id}>
-              <div className="grid-item-l">
-                <div className="avatar img-fit-cover">
-                  <img src={transaction.image} alt="avatar" />
+              return (
+                <div className="tx-item" key={tx.id}>
+                  <div className="tx-left">
+                    <div className="tx-icon" style={{ background: meta.bg, color: meta.color }}>
+                      {meta.icon}
+                    </div>
+                    <div className="tx-info">
+                      <div className="tx-name" title={tx.name}>{tx.name}</div>
+                      <div className="tx-meta">
+                        <span>{formatHumanDate(tx.date)}</span>
+                        <span className="tx-dot">•</span>
+                        <span className="tx-category">{tx.category}</span>
+                        {tx.cardLast4 && (
+                          <>
+                            <span className="tx-dot">•</span>
+                            <span className="font-mono">•••• {tx.cardLast4}</span>
+                          </>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="tx-right">
+                    <span
+                      className={`tx-amount tabular-nums font-mono ${isIncome ? 'text-emerald' : 'text-rose'}`}
+                    >
+                      {isIncome ? '+' : '-'}{formatCurrency(tx.amount, profile.currency)}
+                    </span>
+                    <button
+                      className="tx-delete-btn"
+                      onClick={() => removeTransaction(tx.id)}
+                      title="Delete Transaction"
+                      aria-label="Delete Transaction"
+                    >
+                      &times;
+                    </button>
+                  </div>
                 </div>
-                <p className="text text-silver-v1">
-                  {transaction.name} <span>{transaction.date}</span>
-                </p>
-              </div>
-              <div className="grid-item-r">
-                <span className="text-scarlet">$ {transaction.amount}</span>
-                <button
-                  className="remove-btn"
-                  title="Remove"
-                  onClick={() => handleRemove(transaction.id)}
-                  style={{
-                    background: "none",
-                    border: "none",
-                    color: "#ff4d4f",
-                    fontSize: "1.2rem",
-                    marginLeft: "8px",
-                    cursor: "pointer"
-                  }}
-                >
-                  ×
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
+              );
+            })}
+          </div>
+        )}
       </div>
     </div>
   );

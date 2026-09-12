@@ -1,105 +1,80 @@
-import { useState } from "react";
-import { iconsImgs } from "../../utils/images";
-import "./Subscriptions.css";
-
-// 🧪 Demo data shown initially
-const demoData = [
-  {
-    id: 1,
-    title: "Netflix",
-    due_date: "2025-06-30",
-    amount: 499,
-  },
-  {
-    id: 2,
-    title: "Spotify",
-    due_date: "2025-07-01",
-    amount: 199,
-  },
-];
+import React from 'react';
+import { useFinance } from '../../context/FinanceContext';
+import { formatCurrency, formatHumanDate } from '../../utils/formatters';
+import './Subscriptions.css';
 
 const Subscriptions = () => {
-  const [subscriptions, setSubscriptions] = useState(demoData);
-  const [showForm, setShowForm] = useState(false);
-  const [form, setForm] = useState({ title: "", due_date: "", amount: "" });
+  const {
+    subscriptions,
+    monthlySubscriptionsCost,
+    openModal,
+    toggleSubscriptionStatus,
+    removeSubscription,
+    setActiveView,
+    profile
+  } = useFinance();
 
-  const handleAdd = (e) => {
-    e.preventDefault();
-    const newSub = {
-      id: Date.now(),
-      title: form.title,
-      due_date: form.due_date,
-      amount: Number(form.amount),
-    };
-    setSubscriptions([...subscriptions, newSub]);
-    setForm({ title: "", due_date: "", amount: "" });
-    setShowForm(false);
-  };
-
-  const handleRemove = (id) => {
-    setSubscriptions(subscriptions.filter((sub) => sub.id !== id));
-  };
+  const previewSubs = subscriptions.slice(0, 3);
 
   return (
     <div className="subgrid-two-item grid-common grid-c5">
       <div className="grid-c-title">
-        <h3 className="grid-c-title-text">Subscriptions</h3>
-        <button className="grid-c-title-icon" onClick={() => setShowForm(!showForm)}>
-          <img src={iconsImgs.plus} alt="Add" />
-        </button>
+        <h3 className="grid-c-title-text">
+          <span>🔄</span> Subscriptions
+        </h3>
+        <div style={{ display: 'flex', gap: '6px' }}>
+          <button
+            className="btn-ghost"
+            style={{ fontSize: '12px', padding: '4px 8px' }}
+            onClick={() => setActiveView('subscriptions')}
+          >
+            All ({subscriptions.length}) →
+          </button>
+          <button
+            className="grid-c-title-icon"
+            onClick={() => openModal('addSubscription')}
+            title="Add Subscription"
+            aria-label="Add Subscription"
+          >
+            <span>+</span>
+          </button>
+        </div>
       </div>
 
-      {showForm && (
-        <form className="budget-form" onSubmit={handleAdd}>
-          <input
-            type="text"
-            placeholder="Title"
-            value={form.title}
-            onChange={(e) => setForm({ ...form, title: e.target.value })}
-            required
-          />
-          <input
-            type="date"
-            value={form.due_date}
-            onChange={(e) => setForm({ ...form, due_date: e.target.value })}
-            required
-          />
-          <input
-            type="number"
-            placeholder="Amount"
-            value={form.amount}
-            onChange={(e) => setForm({ ...form, amount: e.target.value })}
-            required
-          />
-          <button type="submit">Add</button>
-        </form>
-      )}
+      <div className="sub-cost-banner">
+        <span className="text-muted" style={{ fontSize: '11px', textTransform: 'uppercase' }}>Monthly Burn</span>
+        <span className="sub-cost-val font-mono tabular-nums text-indigo">
+          {formatCurrency(monthlySubscriptionsCost, profile.currency)}/mo
+        </span>
+      </div>
 
-      <div className="grid-c5-content">
-        <div className="grid-items">
-          {subscriptions.map((sub) => (
-            <div className="grid-item" key={sub.id}>
-              <div className="grid-item-l">
-                <div className="icon">
-                  <img src={iconsImgs.alert} alt="alert" />
+      <div className="sub-list">
+        {previewSubs.map((sub) => (
+          <div className="sub-item" key={sub.id}>
+            <div className="sub-left">
+              <span className="sub-logo">{sub.logo}</span>
+              <div>
+                <div className="sub-title">{sub.title}</div>
+                <div className="sub-due">
+                  Due {formatHumanDate(sub.dueDate)}
                 </div>
-                <p className="text text-silver-v1">
-                  {sub.title} <span>due {sub.due_date}</span>
-                </p>
-              </div>
-              <div className="grid-item-r">
-                <span className="text-silver-v1">$ {sub.amount}</span>
-                <button
-                  className="remove-btn"
-                  onClick={() => handleRemove(sub.id)}
-                  title="Remove"
-                >
-                  &times;
-                </button>
               </div>
             </div>
-          ))}
-        </div>
+
+            <div className="sub-right">
+              <span className="sub-price font-mono tabular-nums">
+                {formatCurrency(sub.amount, profile.currency)}
+              </span>
+              <button
+                className="sub-del-btn"
+                onClick={() => removeSubscription(sub.id)}
+                title="Remove Subscription"
+              >
+                &times;
+              </button>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
